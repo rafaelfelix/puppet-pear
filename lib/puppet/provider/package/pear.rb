@@ -1,5 +1,5 @@
 # Puppet PHP PEAR Package support
-# Taken from https://raw.github.com/gist/1524864/1a468cb768bee75f8b3727939896806c997b59db/pear.rb
+# Taken from https://raw.github.com/gist/1524864/fdd8fd047aa702587c0b7cce7a77d55dbd781f01/pear.rb
 
 require 'puppet/provider/package'
 
@@ -154,7 +154,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
       end
 
       # Check if channel is available, if not, discover
-      if match and (!self.class.channellist().include?(channel) or !self.class.channelaliaslist().include?(channel))
+      if match and (!self.class.channellist().include?(channel) and !self.class.channelaliaslist().include?(channel))
         execute([command(:pearcmd), "channel-discover", channel])
       end
 
