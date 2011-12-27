@@ -1,5 +1,5 @@
 # Puppet PHP PEAR Package support
-# Taken from https://raw.github.com/gist/305778/13f46dea6eba07e38778d7159644b4210ebe7bbe/pear.rb
+# Taken from https://raw.github.com/gist/1524864/1a468cb768bee75f8b3727939896806c997b59db/pear.rb
 
 require 'puppet/provider/package'
 
