@@ -3,8 +3,9 @@ class pear(
 ) inherits pear::params {
 
   # Install the PEAR package.
-  package { $package:
-    ensure => installed,
+  if !defined(Package[$package]) {
+    package { $package:
+      ensure => installed,
+    }
   }
 }
-
