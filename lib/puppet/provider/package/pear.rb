@@ -147,7 +147,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
     # Channel provided
     if source = @resource[:source]
 
-      match = source.match(/^([^\/]+)(?:\/(.*))?$/)
+      match = source.match(/^([^|]+)(?:\|(.*))?$/)
 
       if match
         channel = match[1]
@@ -164,7 +164,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
         source = source + "/#{@resource[:name]}-#{@resource.should(:ensure)}"
       end
 
-      command << source
+      command << channel + '/' + package
 
     # Default channel
     else
@@ -184,7 +184,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
     # Channel provided
     if source = @resource[:source]
 
-      match = source.match(/^([^\/]+)(?:\/(.*))?$/)
+      match = source.match(/^([^|]+)(?:\|(.*))?$/)
 
       if match
         channel = match[1]
@@ -201,7 +201,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
         source = source + "/#{@resource[:name]}"
       end
 
-      command << source
+      command << channel + '/' + package
     else
       command << @resource[:name]
     end
