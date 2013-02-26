@@ -64,3 +64,6 @@ pear::package { "drush":
 }
 ```
 
+## License
+
+Puppet-pear module is released under the {MIT License}[http://www.opensource.org/licenses/MIT].
