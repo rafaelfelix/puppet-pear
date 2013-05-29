@@ -1,6 +1,6 @@
 name    'rafaelfc-pear'
 version '1.0.2'
-source 'https://github.com/rafaelfelix/puppet-pear'
+source 'https://github.com/rafaelfelix/puppet-pear.git'
 author 'rafaelfelix'
 license 'MIT'
 summary 'UNKNOWN'
