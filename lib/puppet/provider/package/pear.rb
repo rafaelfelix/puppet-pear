@@ -20,7 +20,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
     command = [command(:pearcmd), "list", "-a"]
 
     begin
-      list = execute(command).collect do |set|
+      list = execute(command).split("\n").collect do |set|
         if hash[:justme]
           if  set =~ /^hash[:justme]/
             if pearhash = pearsplit(set)
@@ -90,7 +90,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
 
   def self.channellist
     command = [command(:pearcmd), "list-channels"]
-    list = execute(command).collect do |set|
+    list = execute(command).split("\n").collect do |set|
       if channelhash = channelsplit(set)
         channelhash
       else
@@ -116,7 +116,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
 
   def self.channelaliaslist
     command = [command(:pearcmd), "list-channels"]
-    list = execute(command).collect do |set|
+    list = execute(command).split("\n").collect do |set|
       if channelaliashash = channelaliassplit(set)
         channelaliashash
       else
@@ -207,7 +207,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
     end
 
     version = ''
-    list = execute(command).collect do |set|
+    list = execute(command).split("\n").collect do |set|
       if set =~ /^Latest/
         version = set.split[1]
       end
