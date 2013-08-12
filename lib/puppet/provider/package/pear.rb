@@ -164,6 +164,9 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
         source = source + "/#{@resource[:name]}-#{@resource.should(:ensure)}"
       end
 
+      # Update channel (avoid warnings "channel X has updated its protocols")
+      execute([command(:pearcmd), "channel-update", channel])
+
       command << channel + '/' + package
 
     # Default channel
