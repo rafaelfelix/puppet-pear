@@ -1,3 +1,4 @@
+# PEAR class definition
 class pear(
   $package = $pear::params::package
 ) inherits pear::params {

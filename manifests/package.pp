@@ -1,3 +1,4 @@
+# pear::package custom type definition
 # Add a define to allow installing PEAR packages.
 define pear::package(
   $package = $title,
