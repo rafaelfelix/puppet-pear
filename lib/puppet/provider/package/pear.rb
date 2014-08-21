@@ -66,7 +66,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
     when /^PACKAGE/ then return nil
     when /^$/ then return nil
     when /^\(no packages installed\)$/ then return nil
-    when /^(\S+)\s+([.\da-z]+)\s+\S+$/i
+    when /^(\S+)\s+([.\da-zA-Z]+)\s+\S+$/i
       name = $1
       version = $2
       return {
