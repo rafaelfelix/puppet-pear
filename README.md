@@ -37,6 +37,13 @@ pear::package { "drush":
   version => "4.5.0",
   repository => "pear.drush.org",
 }
+
+# Install a package from the pecl repository
+pear::package { "xdebug":
+    repository => "pecl.php.net"
+}
+
+
 ```
 
 Alternately, to specify a different package for PEAR (if you are using IUS
