@@ -6,9 +6,9 @@ define pear::package(
   $version = "latest"
 ) {
   if $version != "latest" {
-    $pear_source = "${repository}|${package}-${version}"
+    $pear_source = "${repository}/${package}-${version}"
   } else {
-    $pear_source = "${repository}|${package}"
+    $pear_source = "${repository}/${package}"
   }
 
   package { "pear-${repository}-${package}":
